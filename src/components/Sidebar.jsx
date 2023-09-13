@@ -1,16 +1,16 @@
-import React from "react";
+import { useStateContext } from "../contexts/ContextProvider";
 import { Link, NavLink } from "react-router-dom";
-import { SiShopware } from "react-icons/si";
 import { MdOutlineCancel } from "react-icons/md";
-import { Tooltip } from "antd";
+import { SiShopware } from "react-icons/si";
 import { links } from "../data/dummy";
+import { Tooltip } from "antd";
+import React from "react";
 
 const Sidebar = () => {
-  const activeMenu = true;
-  const activeLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2";
-  const normalLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
+  const { currentColor, activeMenu, setActiveMenu } = useStateContext();
+
+  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
+  const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
   return (
     <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
       {
@@ -24,9 +24,8 @@ const Sidebar = () => {
               <Tooltip title="Menu">
                 <button
                   type="button"
-                  // onClick={() => setActiveMenu(!activeMenu)}
-                  // style={{ color: currentcolor }}
-                  style={{ color: "blue" }}
+                  onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
+                  style={{ color: currentColor }}
                   className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
                 >
                   <MdOutlineCancel />
@@ -44,10 +43,9 @@ const Sidebar = () => {
                     <NavLink
                       to={`/${link.name}`}
                       key={link.name}
-                      // onClick={handleCloseSideBar}
+                      onClick={setActiveMenu(true)}
                       style={({ isActive }) => ({
-                        // backgroundColor: isActive ? currentColor : '',
-                        backgroundColor: isActive ? "blue" : '',
+                        backgroundColor: isActive ? currentColor : '',
                       })}
                       className={({ isActive }) => (isActive ? activeLink : normalLink)}
                     >
