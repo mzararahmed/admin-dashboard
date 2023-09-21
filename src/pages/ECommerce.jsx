@@ -5,15 +5,16 @@ import { IoIosMore } from 'react-icons/io';
 import { BsCurrencyDollar } from 'react-icons/bs';
 
 import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
-import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
+import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownitems, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import product9 from '../data/product9.jpg';
 
+console.log(dropdownitems)
 const items = [
   {
     key: '1',
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+      <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/code.zedd/">
         1st menu item
       </a>
     ),
@@ -21,7 +22,7 @@ const items = [
   {
     key: '2',
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+      <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/code.zedd/">
         2nd menu item (disabled)
       </a>
     ),
@@ -31,7 +32,7 @@ const items = [
   {
     key: '3',
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+      <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/code.zedd/">
         3rd menu item (disabled)
       </a>
     ),
@@ -49,7 +50,6 @@ const DropDown = ({ currentMode }) => (
       <a onClick={(e) => e.preventDefault()}>
         <Space>
           Hover me
-          {/* <DownOutlined /> */}
         </Space>
       </a>
     </Dropdown>
