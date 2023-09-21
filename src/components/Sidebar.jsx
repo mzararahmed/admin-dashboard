@@ -4,6 +4,7 @@ import { SiShopware } from 'react-icons/si';
 import { MdOutlineCancel } from 'react-icons/md';
 import { Tooltip } from 'antd';
 
+import avatar from '../data/logo.png';
 import { links } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
@@ -25,9 +26,13 @@ const Sidebar = () => {
         <>
           <div className="flex justify-between items-center">
             <Link to="/" onClick={handleCloseSideBar} className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-              <SiShopware /> <span>Shoppy</span>
+            <img
+              className="rounded-full w-8 h-8"
+              src={avatar}
+              alt="user-profile"
+            /> <span>Admin Dashboard</span>
             </Link>
-            <Tooltip title="Menu" position="BottomCenter">
+            <Tooltip title="Menu" position="bottom">
               <button
                 type="button"
                 onClick={() => setActiveMenu(!activeMenu)}
