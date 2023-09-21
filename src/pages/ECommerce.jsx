@@ -49,7 +49,7 @@ const DropDown = ({ currentMode }) => (
     <Dropdown menu={{items}}>
       <a onClick={(e) => e.preventDefault()}>
         <Space>
-          Hover me
+          Select
         </Space>
       </a>
     </Dropdown>
